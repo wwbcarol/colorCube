@@ -1,11 +1,10 @@
 colorCube.logic.solve = function(result){
-	var result = [6,6,4,6,6,6,6,6,2,2,2,7,6,4,4,4,6,6,4,4,6,4,4,4];//fack value
 
 	var n = colorCube.utils.const.patches4.length;
 
 	var choice = 1 << n;
 	var resultSet = [];
-	
+
 	for(var i = choice-1; i >=0; i--){
 		var choiceSet = [];
 		for (var j = 0 ; j<n ; j++) {
@@ -43,7 +42,7 @@ colorCube.logic.permutation = function(as, level, size, choiceSet, resultSet, re
 			as[level] = tmp;
 		}
 	}
-}
+};
 
 colorCube.logic.judge = function(as, choiceSet, result){
 	var guessResult = new Array(24);
@@ -67,7 +66,7 @@ colorCube.logic.judge = function(as, choiceSet, result){
 	}
 
 	return this.judgeTwoArray(guessResult, result);
-}
+};
 
 colorCube.logic.judgeTwoArray = function(guessResult, result) {
 	for (var i = guessResult.length - 1; i >= 0; i--) {
@@ -79,4 +78,5 @@ colorCube.logic.judgeTwoArray = function(guessResult, result) {
 		}
 	}
 	return true;
-}
+};
+
