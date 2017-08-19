@@ -40,6 +40,10 @@ $('#inputFile').on('change', function(event) {
                 x: 150,
                 y: 100
             });
+
+            var input = colorCube.visual.serialize(puzzleData);
+            var output = colorCube.logic.solve(input);
+            console.log(output);
         };
         // var puzzleData = colorCube.visual.analyse(img);
         // // generate input data
