@@ -1,4 +1,4 @@
-var l = 1000;
+var l = 2500;
 
 var svg = d3.select("body").append("svg")
     .attr("width", l)
@@ -18,7 +18,7 @@ $('#inputFile').on('change', function(event) {
                 svg: svg,
                 r: 300,
                 x: 150,
-                y: 100
+                y: 50
             });
 
             var patches = colorCube.utils.const.patches4;
@@ -27,18 +27,13 @@ $('#inputFile').on('change', function(event) {
                     name: "polygon" + i,
                     svg: svg,
                     color: colorCube.utils.colorGray,
-                    x: 50 + 120 * i,
+                    x: 50 + 150 * i,
                     y: 400
                 });
             }
 
-            // // generate input data
-            // // var input = colorCube.visual.serialize(puzzleData);
-            // // var output = colorCube.logic.solve(inputData, patches);
-
-            var output = [[[0,5],[1,1],[3,5]],
-                [[0,5],[1,1],[2,17],[3,5]]
-            ];
+            var input = colorCube.visual.serialize(puzzleData);
+            var output = colorCube.logic.solve(input, patches);
 
             for(var j = 0; j < output.length; j++){
                 for(var k = 0; k < output[j].length; k++){
@@ -54,12 +49,13 @@ $('#inputFile').on('change', function(event) {
                         name: "poly" + j + "-" + k,
                         svg: svg,
                         color: colorCube.utils.colorMap[color],
-                        x: 50 + 120 * k,
+                        x: 50 + 150 * k,
                         // x: 50,
                         y: 550 + j * 150
                     });
                 }
             }
+
         };
     };
     fr.readAsDataURL(imgFile);
