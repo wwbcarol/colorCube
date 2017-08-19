@@ -5,11 +5,19 @@
     <title>Color Cube</title>
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/lib/d3/d3.js"></script>
-    <script type="text/javascript" src="js/lib/underscore/underscore.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="lib/d3/d3.js"></script>
+    <script type="text/javascript" src="lib/underscore/underscore.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-    <img style="display: none" id="img" src="img/IMG_4512.PNG" />
+<div style="margin-top: 10px; margin-left: 180px">
+    <!--<button id="fileUploadBtn" type="button" class="btn">上传</button>-->
+    <input id="inputFile" type="file" name="file"/>
+    <img style="display: none" id="inputFileImg" src="">
+</div>
+<!--<img style="display: none" id="img" src="img/IMG_4516.PNG" />-->
 </body>
 <script type="text/javascript" src="js/colorCube/colorCube.js"></script>
 <script type="text/javascript" src="js/colorCube/utils/utils.js"></script>

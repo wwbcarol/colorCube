@@ -10,6 +10,10 @@ colorCube.utils.const.analyseImgIphon6Plus =
     [[620, 211], [622, 244], [592, 259], [648, 261]],
     [[649, 195], [680, 212], [680, 245], [710, 193]]];
 
+colorCube.utils.const.iphone6PlusWidth = 1242;
+
+colorCube.utils.const.iphone6PlusHeight = 2208;
+
 colorCube.utils.colorMap = {
     0: d3.rgb(255, 255, 255),
     1: d3.rgb(242, 103, 69),
