@@ -8,6 +8,8 @@ colorCube.visual.drawPolyWithFixColor = function(posList, config){
     //     y: 150,
     // };
 
+    config.r = config.r || 100;
+
     var scaleX = d3.scaleLinear()
         .domain([-2 * config.r, 2 * config.r])
         .range([0, config.r]);
@@ -31,7 +33,21 @@ colorCube.visual.drawPolyWithFixColor = function(posList, config){
             }).join(" ");
         })
         .attr("fill", config.color)
-        .attr("stroke", config.color);
+        .attr("stroke", config.color)
+        .attr("opacity", 0.5);
+
+    // config.svg.selectAll(config.name + "_line")
+    //     .data([colorCube.utils.outlineC(config.r * 2)])
+    //     .enter()
+    //     .append("polyline")
+    //     .attr("points", function(d){
+    //         return d.map(function(d) {
+    //             return [x + scaleX(d.x), y + scaleY(d.y)].join(",");
+    //         }).join(" ");
+    //     });
+        // .attr("fill", "none");
+        // .attr("stroke", config.color)
+        // .attr("opacity", 0.5);
 };
 
 colorCube.visual.drawPoly = function(puzzleData, config){
@@ -42,6 +58,8 @@ colorCube.visual.drawPoly = function(puzzleData, config){
     //     x: 150,
     //     y: 150,
     // };
+
+    config.r = config.r || 100;
 
     var scaleX = d3.scaleLinear()
         .domain([-2 * config.r, 2 * config.r])
