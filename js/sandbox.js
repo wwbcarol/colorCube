@@ -25,28 +25,34 @@ var svg = d3.select("body").append("svg")
 // });
 
 $('#inputFile').on('change', function(event) {
-
     var imgFile = event.target.files[0];
     var fr = new FileReader();
     fr.onloadend = function(e){
         document.getElementById("inputFileImg").src = e.target.result;
         var img = document.getElementById('inputFileImg');
-        var puzzleData = colorCube.visual.analyse(img);
-        var result = [];
-        for(var i = 0; i < 6; i++){
-            for(var j = 0; j < 4; j++){
-                result.push(puzzleData[i][j]);
-            }
-        }
-        console.log(result);
-        $("svg").empty();
-        colorCube.visual.drawPoly(puzzleData, {
-            name: "puzzle",
-            svg: svg,
-            r: 300,
-            x: 150,
-            y: 100
-        });
+        img.onload = function(){
+            var puzzleData = colorCube.visual.analyse(img);
+            $("svg").empty();
+            colorCube.visual.drawPoly(puzzleData, {
+                name: "puzzle",
+                svg: svg,
+                r: 300,
+                x: 150,
+                y: 100
+            });
+        };
+        // var puzzleData = colorCube.visual.analyse(img);
+        // // generate input data
+        // // var input = colorCube.visual.serialize(puzzleData);
+        // // var output = colorCube.logic.solve(inputData, patches);
+        // $("svg").empty();
+        // colorCube.visual.drawPoly(puzzleData, {
+        //     name: "puzzle",
+        //     svg: svg,
+        //     r: 300,
+        //     x: 150,
+        //     y: 100
+        // });
     };
     fr.readAsDataURL(imgFile);
 });

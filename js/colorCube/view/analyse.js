@@ -2,8 +2,6 @@ colorCube.visual.analyse = function(img){
     var canvas = document.createElement("canvas");
     canvas.setAttribute('width', img.width);
     canvas.setAttribute('height', img.height);
-    console.log(img.width);
-    console.log(img.height);
 
     var scaleX = d3.scaleLinear()
         .domain([0, colorCube.utils.const.iphone6PlusWidth])
@@ -34,4 +32,14 @@ colorCube.visual.analyse = function(img){
     });
 
     return puzzleData;
+};
+
+colorCube.visual.serialize = function(puzzleData) {
+    var result = [];
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 4; j++) {
+            result.push(puzzleData[i][j]);
+        }
+    }
+    return result;
 };
