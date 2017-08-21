@@ -1,2 +1,8 @@
+python 2.x is needed.
+
+1. Run python start-server.py
+2. go to http://localhost:8888/index.html
+3. upload img\4patch.jpg or other puzzle image
+
 Copyright Wenbin WU & Yi LUO
 All rights reserved.
