@@ -21,7 +21,7 @@ $('#inputFile').on('change', function(event) {
                 y: 50
             });
 
-            var patches = colorCube.utils.const.patches10;
+            var patches = colorCube.utils.const.patches13;
             for(var i = 0; i < patches.length; i++){
                 colorCube.visual.drawPolyWithFixColor(patches[i], {
                     name: "polygon" + i,
