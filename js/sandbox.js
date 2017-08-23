@@ -21,7 +21,7 @@ $('#inputFile').on('change', function(event) {
                 y: 50
             });
 
-            var patches = colorCube.utils.const.patches4;
+            var patches = colorCube.utils.const.patches10;
             for(var i = 0; i < patches.length; i++){
                 colorCube.visual.drawPolyWithFixColor(patches[i], {
                     name: "polygon" + i,
@@ -50,7 +50,7 @@ $('#inputFile').on('change', function(event) {
                         svg: svg,
                         color: colorCube.utils.colorMap[color],
                         x: 50 + 150 * k,
-                        // x: 50,
+                        //x: 50,
                         y: 550 + j * 150
                     });
                 }
