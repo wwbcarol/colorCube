@@ -26,7 +26,11 @@ colorCube.logic.solve = function(answer, patches){
 		}
 
 		var as = [];
-		this.permutation(as, 0, size, choiceSet, resultSet, answer);
+		var result = this.permutation(as, 0, size, choiceSet, answer);
+		if(result != null){
+			resultSet.push(result);
+			return resultSet;
+		}
 	}
 
 	return resultSet;
@@ -83,7 +87,7 @@ colorCube.logic.verifyChoice = function(choiceSet){
 	}
 };
 
-colorCube.logic.permutation = function(as, level, size, choiceSet, resultSet, answer){
+colorCube.logic.permutation = function(as, level, size, choiceSet, answer){
 	if(level>=size){
 		if(this.judge(as, choiceSet, answer)){
 			var tmp = [];
@@ -92,16 +96,18 @@ colorCube.logic.permutation = function(as, level, size, choiceSet, resultSet, an
 				var operation = as[i];
 				tmp.push([choice,operation]);
 			}
-			resultSet.push(tmp);
+			return tmp;
+		}else{
+			return null;
 		}
 	}else{
 		var choice = choiceSet[level];
 		for (var i = 0; i < 18; i++) {
 			if(this.forbidden.status[choice].indexOf(i) === -1){
-				var tmp = as[level];
 				as[level] = i;
-				this.permutation(as, level+1, size, choiceSet, resultSet, answer);
-				as[level] = tmp;
+				var result = this.permutation(as, level+1, size, choiceSet, answer);
+				if(result != null)
+					return result;
 			}
 		}
 	}
