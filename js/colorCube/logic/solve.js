@@ -20,12 +20,13 @@ colorCube.logic.solve = function(answer, patches){
 			}
 		}
 
-		var size = choiceSet.length;
+		
 		if(!this.verifyChoice(choiceSet)){
 			continue;
 		}
 
 		var as = [];
+		var size = choiceSet.length;
 		var result = this.permutation(as, 0, size, choiceSet, answer);
 		if(result != null){
 			resultSet.push(result);
@@ -47,7 +48,7 @@ colorCube.logic.solve = function(answer, patches){
 * Then return {status: [[3,5,7,8,9],[1,2,3...,17],...], patch:[1]}
 */
 colorCube.logic.prepare = function(answer, patches){
-
+	var x = 1;
 	for (var i = 0; i < patches.length ; i++) {
 		var patch = patches[i];
 		var subStatus = [];
@@ -67,8 +68,11 @@ colorCube.logic.prepare = function(answer, patches){
 		this.forbidden.status.push(subStatus);
 		if(subStatus.length === 18)
 			this.forbidden.patch.push(i);
+		else{
+			x *= (18-subStatus.length);
+		}
 	}
-
+	console.log(x+" kinds of possibilities!");
 };
 
 colorCube.logic.verifyChoice = function(choiceSet){
